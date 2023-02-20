@@ -1,6 +1,6 @@
 package xml_manager;
 
-import model.Movies;
+import movie.Movies;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

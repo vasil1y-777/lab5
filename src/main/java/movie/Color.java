@@ -1,4 +1,4 @@
-package model;
+package movie;
 
 public enum Color {
     RED,

@@ -1,4 +1,4 @@
-package model;
+package movie;
 
 /**
  * Model of Coordinates. Sub-model of the <code>Route</code>. Contains getters/setters of each class fields.
