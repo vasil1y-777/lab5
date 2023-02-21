@@ -23,6 +23,5 @@ public class WriteReadTesting {
         mmm.setMovies(mmovies);
         System.out.println(XMLMovieManager.getInstance().readObjectFromXML("test.xml").toString());
         XMLMovieManager.getInstance().saveObjectToXML(mmm);
-
     }
 }
