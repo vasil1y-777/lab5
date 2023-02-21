@@ -21,7 +21,6 @@ public class XMLMovieManager {
      */
 
     private final static String BASE_PATH_STORAGE = "src/main/java/data_storage/";
-
     private final static String XML = ".xml";
     private static XMLMovieManager INSTANCE;
     private final Class BASE_CLASS = Movies.class;
@@ -44,7 +43,6 @@ public class XMLMovieManager {
         }
         return movies;
     }
-
 
     public void saveObjectToXML(Movies movies, String filename) {
         JAXBContext jaxbContext;
