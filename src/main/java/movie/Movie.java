@@ -1,15 +1,22 @@
 package movie;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.time.LocalDate;
-
 /**
  * Model of Movie. Sub-model of the <code>Route</code>. Contains getters/setters of each class fields.
  * Some fields have restrictions. It's signed under every method of field.
  */
-//
+import exceptions.BadValueLengthException;
+import exceptions.BlankValueException;
+import exceptions.NotGreatThanException;
+import exceptions.NullValueException;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Date;
+import java.util.UUID;
+
+import static movie.FieldProperty.*;
+
 @XmlRootElement(name = "movie")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movie {
@@ -19,15 +26,33 @@ public class Movie {
      *
      * @return Value of field id
      */
-    private long id;
+    private UUID id; //(UUID) Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
-    private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private int oscarsCount; //Значение поля должно быть больше 0
-    private int goldenPalmCount; //Значение поля должно быть больше 0
-    private Integer budget; //Значение поля должно быть больше 0, Поле может быть null
+    private java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private long oscarsCount; //Значение поля должно быть больше 0
+    private long goldenPalmCount; //Значение поля должно быть больше 0
+    private Float budget; //Значение поля должно быть больше 0, Поле может быть null
     private MpaaRating mpaaRating; //Поле может быть null
     private Person director; //Поле не может быть null
+
+    public Movie(String name,
+                 Coordinates coordinates,
+                 long oscarsCount,
+                 long goldenPalmCount,
+                 Float budget,
+                 MpaaRating mpaaRating,
+                 Person director) throws BlankValueException, NullValueException, NotGreatThanException, BadValueLengthException {
+        id = java.util.UUID.randomUUID();
+        this.name = new FieldHandler(name, NOT_NULL, NOT_BLANK).handleString();
+        this.coordinates = new FieldHandler(coordinates, NOT_NULL).handleCoordinates();
+        creationDate = new Date();
+        this.oscarsCount = new FieldHandler(oscarsCount, GREAT_THAN_ZERO).handleLong();
+        this.goldenPalmCount = new FieldHandler(goldenPalmCount, GREAT_THAN_ZERO).handleLong();
+        this.budget = new FieldHandler(budget, GREAT_THAN_ZERO).handleFloat();
+        this.mpaaRating = mpaaRating;
+        this.director = new FieldHandler(director, NOT_NULL).handlePerson();
+    }
 
     /**
      * Restrictions:  Value must be more than zero
@@ -89,7 +114,7 @@ public class Movie {
      *
      * @return Value of field creationDate
      */
-    public LocalDate getCreationDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
@@ -98,7 +123,7 @@ public class Movie {
      *
      * @param creationDate Value of field creationDate
      */
-    public void setCreationDate(LocalDate creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -207,7 +232,4 @@ public class Movie {
                 '}';
     }
 }
-
-
-
 
