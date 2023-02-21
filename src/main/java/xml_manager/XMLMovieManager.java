@@ -20,23 +20,17 @@ public class XMLMovieManager {
     TODO добавить итераторы ??
      */
 
-
     private final static String BASE_PATH_STORAGE = "src/main/java/data_storage/";
 
     private final static String XML = ".xml";
     private static XMLMovieManager INSTANCE;
     private final Class BASE_CLASS = Movies.class;
 
-
     private XMLMovieManager() {
     }
 
     public static XMLMovieManager getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new XMLMovieManager();
-        }
-
-        return INSTANCE;
+        return INSTANCE != null ? INSTANCE : new XMLMovieManager();
     }
 
     public Movies readObjectFromXML(String filename) {
@@ -44,7 +38,6 @@ public class XMLMovieManager {
         try {
             JAXBContext context = JAXBContext.newInstance(BASE_CLASS);
             Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
-
             movies = (Movies) jaxbUnmarshaller.unmarshal(new File(BASE_PATH_STORAGE + filename));
         } catch (JAXBException e) {
             e.printStackTrace();
@@ -79,12 +72,11 @@ public class XMLMovieManager {
                     writer.print(sw);
                     writer.close();
                 }
-
             } catch (FileNotFoundException e) {
-                System.out.println("file not found error");
+                System.out.println("File not found error");
                 e.printStackTrace();
             } catch (IOException e) {
-                System.out.println("An IO error occurred.");
+                System.out.println("An IO error occurred");
                 e.printStackTrace();
             }
         } catch (JAXBException e) {
@@ -108,7 +100,7 @@ public class XMLMovieManager {
                 if (myObj.createNewFile()) {
                     System.out.println("File created: " + myObj.getName());
                 } else {
-                    System.out.println("Founded a file....");
+                    System.out.println("Founded a file...");
                     Movies mmm = new Movies();
                     StringWriter sw = new StringWriter();
                     jaxbMarshaller.marshal(movies, sw);
@@ -120,12 +112,11 @@ public class XMLMovieManager {
                     writer.print(sw);
                     writer.close();
                 }
-
             } catch (FileNotFoundException e) {
-                System.out.println("file not found error");
+                System.out.println("File not found error");
                 e.printStackTrace();
             } catch (IOException e) {
-                System.out.println("An IO error occurred.");
+                System.out.println("An IO error occurred");
                 e.printStackTrace();
             }
         } catch (JAXBException e) {
