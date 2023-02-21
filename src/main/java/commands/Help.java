@@ -3,6 +3,7 @@ package commands;
 import interfaces.Command;
 import org.reflections.Reflections;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
 public class Help implements Command {
@@ -12,8 +13,9 @@ public class Help implements Command {
         Set<Class<? extends Command>> allCommands = reflections.getSubTypesOf(Command.class);
         for (Class<? extends Command> command : allCommands) {
             try {
-                System.out.println(command.newInstance().getInfo());
-            } catch (IllegalAccessException | InstantiationException e) {
+                System.out.println(command.getDeclaredConstructor().newInstance().getInfo());
+            } catch (IllegalAccessException | InstantiationException | InvocationTargetException |
+                     NoSuchMethodException e) {
                 throw new RuntimeException(e);
             }
         }

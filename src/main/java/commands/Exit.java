@@ -5,6 +5,7 @@ import interfaces.Command;
 public class Exit implements Command {
     @Override
     public void execute() {
+        System.out.println("Завершение работы...");
         Runtime.getRuntime().exit(0);
     }
 
