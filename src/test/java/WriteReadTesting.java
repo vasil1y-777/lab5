@@ -1,22 +1,37 @@
-package testing_module;
-
-import movie.Movie;
-import movie.Movies;
+import exceptions.BadValueLengthException;
+import exceptions.BlankValueException;
+import exceptions.NotGreatThanException;
+import exceptions.NullValueException;
+import movie.*;
 import xml_manager.XMLMovieManager;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
 public class WriteReadTesting {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws BlankValueException, NotGreatThanException, BadValueLengthException, NullValueException {
         List<Movie> mmovies = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            Movie m = new Movie();
+            Date directorBirthday = new Date();
+            Random height = new Random();
+            Person director = new Person(
+                    "Director" + i,
+                    null,
+                    null,
+                    "1234567",
+                    Color.BROWN);
+            Movie m = new Movie(
+                    "Name" + i,
+                    new Coordinates(i, i + 1),
+                    null,
+                    null,
+                    null,
+                    null,
+                    director);
             Random r = new Random();
-            m.setBudget(r.nextInt(10000)); //[0;..]
-            m.setId(r.nextInt(1000)); //[0;..]
-            m.setName("Film" + i);
+            m.setBudget((float) r.nextInt(10000)); //[0;..]
             mmovies.add(m);
         }
         Movies mmm = new Movies();
