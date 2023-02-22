@@ -1,4 +1,4 @@
-package commands;
+package classes.commands;
 
 import interfaces.Command;
 import org.reflections.Reflections;
@@ -9,7 +9,7 @@ import java.util.Set;
 public class Help implements Command {
     @Override
     public void execute() {
-        Reflections reflections = new Reflections("commands");
+        Reflections reflections = new Reflections("classes.commands");
         Set<Class<? extends Command>> allCommands = reflections.getSubTypesOf(Command.class);
         for (Class<? extends Command> command : allCommands) {
             try {

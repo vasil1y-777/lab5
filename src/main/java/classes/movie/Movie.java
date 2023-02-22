@@ -1,10 +1,8 @@
-package movie;
+package classes.movie;
 
 
-import exceptions.BadValueLengthException;
-import exceptions.BlankValueException;
-import exceptions.NotGreatThanException;
-import exceptions.NullValueException;
+import classes.console.TextColor;
+import exceptions.*;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -12,13 +10,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 import java.util.UUID;
 
-import static movie.FieldProperty.*;
-
 /**
  * Model of Movie. Sub-model of the <code>Route</code>. Contains getters/setters of each class fields.
  * Some fields have restrictions. It's signed under every method of field.
  */
-@XmlRootElement(name = "movie")
+@XmlRootElement(name = "classes/movie")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movie {
     //TODO перенести javadoc с геттеров-сеттеров только на поля
@@ -38,16 +34,16 @@ public class Movie {
                  Long goldenPalmCount,
                  Float budget,
                  MpaaRating mpaaRating,
-                 Person director) throws BlankValueException, NullValueException, NotGreatThanException, BadValueLengthException {
+                 Person director) throws BlankValueException, NullValueException, NotGreatThanException, BadValueLengthException, GreatThanException, NotUniqueException {
         id = java.util.UUID.randomUUID();
-        this.name = new FieldHandler(name, NOT_NULL, NOT_BLANK).handleString();
-        this.coordinates = (Coordinates) new FieldHandler(coordinates, NOT_NULL).handleObject();
+        this.name = new FieldHandler(name, FieldProperty.NOT_NULL, FieldProperty.NOT_BLANK).handleString();
+        this.coordinates = (Coordinates) new FieldHandler(coordinates, FieldProperty.NOT_NULL).handleObject();
         creationDate = new Date();
-        this.oscarsCount = new FieldHandler(oscarsCount, GREAT_THAN_ZERO).handleLong();
-        this.goldenPalmCount = new FieldHandler(goldenPalmCount, GREAT_THAN_ZERO).handleLong();
-        this.budget = new FieldHandler(budget, GREAT_THAN_ZERO).handleFloat();
+        this.oscarsCount = new FieldHandler(oscarsCount, FieldProperty.GREAT_THAN_ZERO).handleLong();
+        this.goldenPalmCount = new FieldHandler(goldenPalmCount, FieldProperty.GREAT_THAN_ZERO).handleLong();
+        this.budget = new FieldHandler(budget, FieldProperty.GREAT_THAN_ZERO).handleFloat();
         this.mpaaRating = mpaaRating;
-        this.director = (Person) new FieldHandler(director, NOT_NULL).handleObject();
+        this.director = (Person) new FieldHandler(director, FieldProperty.NOT_NULL).handleObject();
     }
 
     /**
@@ -197,17 +193,15 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", coordinates=" + coordinates +
-                ", creationDate=" + creationDate +
-                ", oscarsCount=" + oscarsCount +
-                ", goldenPalmCount=" + goldenPalmCount +
-                ", budget=" + budget +
-                ", mpaaRating=" + mpaaRating +
-                ", director=" + director +
-                '}';
+        String[] fieldNames = {"ID", "Name", "Coordinates", "CreationDate", "OscarsCount", "GoldenPalmCount", "Budget", "MpaaRating", "Director"};
+        Object[] fieldValues = {id, name, coordinates, creationDate, oscarsCount, goldenPalmCount, budget, mpaaRating, director};
+        String movieString = TextColor.cyan("Movie {\n");
+        for (int fieldId = 0; fieldId < fieldNames.length; fieldId++) {
+            if (fieldValues[fieldId] != null)
+                movieString += "\t\t" + TextColor.grey(fieldNames[fieldId] + "=") + TextColor.cyan(fieldValues[fieldId].toString()) + "\n";
+        }
+        movieString += TextColor.cyan("\t}");
+        return movieString;
     }
 }
 
