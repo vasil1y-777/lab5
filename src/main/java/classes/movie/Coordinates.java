@@ -1,10 +1,11 @@
-package movie;
+package classes.movie;
 
+import exceptions.GreatThanException;
 import exceptions.NotGreatThanException;
 import exceptions.NullValueException;
 
-import static movie.FieldProperty.GREAT_THAN_X;
-import static movie.FieldProperty.MAX_VALUE;
+import static classes.movie.FieldProperty.GREAT_THAN_X;
+import static classes.movie.FieldProperty.MAX_VALUE;
 
 /**
  * Model of Coordinates. Sub-model of the <code>Route</code>. Contains getters/setters of each class fields.
@@ -14,7 +15,7 @@ public class Coordinates {
     private long x; //Максимальное значение поля: 279
     private int y; //Значение поля должно быть больше -230
 
-    public Coordinates(long x, int y) throws NotGreatThanException, NullValueException {
+    public Coordinates(long x, int y) throws NotGreatThanException, NullValueException, GreatThanException {
         this.x = new FieldHandler(x, MAX_VALUE).handleLong();
         this.y = new FieldHandler(y, GREAT_THAN_X).handleInt();
     }
@@ -43,5 +44,10 @@ public class Coordinates {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + x + ", " + y + ")";
     }
 }

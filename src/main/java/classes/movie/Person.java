@@ -1,13 +1,11 @@
-package movie;
+package classes.movie;
 
-import exceptions.BadValueLengthException;
-import exceptions.BlankValueException;
-import exceptions.NotGreatThanException;
-import exceptions.NullValueException;
+import classes.console.TextColor;
+import exceptions.*;
 
 import java.util.Date;
 
-import static movie.FieldProperty.*;
+import static classes.movie.FieldProperty.*;
 
 public class Person {
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -16,7 +14,7 @@ public class Person {
     private String passportID; //Значение этого поля должно быть уникальным, Длина строки должна быть не меньше 7, Строка не может быть пустой, Поле не может быть null
     private Color eyeColor; //Поле не может быть null
 
-    public Person(String name, Date birthday, Double height, String passportID, Color eyeColor) throws BlankValueException, NullValueException, NotGreatThanException, BadValueLengthException {
+    public Person(String name, Date birthday, Double height, String passportID, Color eyeColor) throws BlankValueException, NullValueException, NotGreatThanException, BadValueLengthException, GreatThanException, NotUniqueException {
         this.name = new FieldHandler(name, NOT_NULL, NOT_BLANK).handleString();
         this.birthday = birthday;
         this.height = new FieldHandler(height, GREAT_THAN_ZERO).handleDouble();
@@ -40,11 +38,11 @@ public class Person {
         this.birthday = birthday;
     }
 
-    public double getHeight() {
+    public Double getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(Double height) {
         this.height = height;
     }
 
@@ -62,5 +60,18 @@ public class Person {
 
     public void setEyeColor(Color eyeColor) {
         this.eyeColor = eyeColor;
+    }
+
+    @Override
+    public String toString() {
+        String[] fieldNames = {"Name", "Birthday", "Height", "PassportID", "EyeColor"};
+        Object[] fieldValues = {name, birthday, height, passportID, eyeColor};
+        String personString = TextColor.green("Person {\n");
+        for (int fieldId = 0; fieldId < fieldNames.length; fieldId++) {
+            if (fieldValues[fieldId] != null)
+                personString += "\t\t\t" + TextColor.grey(fieldNames[fieldId] + "=") + TextColor.green(fieldValues[fieldId].toString()) + "\n";
+        }
+        personString += TextColor.green("\t\t}");
+        return personString;
     }
 }

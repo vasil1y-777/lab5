@@ -1,8 +1,8 @@
 package exceptions;
 
+import classes.console.TextColor;
+
 public class DangerException extends Exception {
-    private static final String COLOR_RESET = "\u001B[0m";
-    private static final String COLOR_RED = "\u001B[31m";
     private String message = "";
 
     public DangerException() {
@@ -13,7 +13,7 @@ public class DangerException extends Exception {
     }
 
     public void printMessage() {
-        System.out.println(COLOR_RED + getMessage() + COLOR_RESET);
+        System.out.println(TextColor.red(getMessage()));
     }
 
     public String getMessage() {
@@ -22,6 +22,6 @@ public class DangerException extends Exception {
 
     @Override
     public String toString() {
-        return COLOR_RED + getMessage() + COLOR_RESET;
+        return TextColor.red(getMessage());
     }
 }

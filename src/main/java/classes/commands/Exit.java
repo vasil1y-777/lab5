@@ -1,4 +1,4 @@
-package commands;
+package classes.commands;
 
 import interfaces.Command;
 

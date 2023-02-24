@@ -1,4 +1,4 @@
-package movie;
+package classes.movie;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,7 +9,7 @@ import java.util.List;
 @XmlRootElement(name = "movies")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movies {
-    @XmlElement(name = "movie")
+    @XmlElement(name = "classes/movie")
     private List<Movie> movies = null;
 
     public List<Movie> getMovies() {
