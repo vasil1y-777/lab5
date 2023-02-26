@@ -1,9 +1,9 @@
 package interfaces;
 
-public interface Command {
+public interface Commandable {
     String getName();
 
     String getInfo();
 
-    void execute();
+    void execute(String... args);
 }

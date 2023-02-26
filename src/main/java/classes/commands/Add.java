@@ -1,11 +1,12 @@
 package classes.commands;
 
+import classes.NamedCommand;
 import classes.collection.CollectionManager;
 import classes.console.RepeatScanner;
 import classes.console.TextColor;
 import classes.movie.*;
 import exceptions.*;
-import interfaces.Command;
+import interfaces.Commandable;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,19 +14,14 @@ import java.util.Date;
 
 import static classes.movie.FieldProperty.*;
 
-public class Add implements Command {
-    @Override
-    public String getName() {
-        return "add";
-    }
-
+public class Add extends NamedCommand implements Commandable {
     @Override
     public String getInfo() {
         return getName() + "\t\t-\tдобавить новый элемент в коллекцию";
     }
 
     @Override
-    public void execute() {
+    public void execute(String... args) {
         CollectionManager collectionManager = new CollectionManager();
         RepeatScanner scanner = new RepeatScanner();
         Movie movie = null;

@@ -1,22 +1,32 @@
 package classes.console;
 
 import exceptions.NoSuchCommandException;
-import interfaces.Command;
+import interfaces.Commandable;
 import org.reflections.Reflections;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Set;
 
 public class InputHandler {
-    private final Set<Class<? extends Command>>
-            allCommands = new Reflections("classes.commands").getSubTypesOf(Command.class);
+    private final Set<Class<? extends Commandable>>
+            allCommands = new Reflections("classes.commands").getSubTypesOf(Commandable.class);
 
-    public Command getCommand(String commandName) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchCommandException {
-        commandName = commandName.trim().substring(0, 1).toUpperCase() + commandName.trim().toLowerCase().substring(1);
-        for (Class<? extends Command> command : allCommands) {
-            if (command.getName().equals("classes.commands." + commandName))
+    public Commandable getCommand(String commandName) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchCommandException {
+        for (Class<? extends Commandable> command : allCommands) {
+            if (camelToSnake(command.getName().split("\\.")[2]).equals(commandName))
                 return command.getDeclaredConstructor().newInstance();
         }
         throw new NoSuchCommandException();
+    }
+
+    public static String camelToSnake(String str) {
+        String result = str.substring(0, 1).toLowerCase();
+        for (int i = 1; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (Character.isUpperCase(ch))
+                result += "_" + Character.toLowerCase(ch);
+            else result += ch;
+        }
+        return result;
     }
 }

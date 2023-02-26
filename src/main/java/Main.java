@@ -2,7 +2,7 @@ import classes.console.InputHandler;
 import classes.console.TextColor;
 import exceptions.NoSuchCommandException;
 import exceptions.SystemException;
-import interfaces.Command;
+import interfaces.Commandable;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
@@ -14,10 +14,12 @@ public class Main {
         while (true) {
             System.out.print(TextColor.green("> "));
             try {
-                String commandName = scanner.nextLine();
+                String inputString = scanner.nextLine();
+                String commandName = inputString.split(" ")[0];
+                String commandArgument = inputString.split(" ")[1];
                 if (!commandName.isBlank()) {
-                    Command command = inputHandler.getCommand(commandName);
-                    command.execute();
+                    Commandable command = inputHandler.getCommand(commandName);
+                    command.execute(commandArgument);
                 }
             } catch (NoSuchCommandException e) {
                 e.printMessage();

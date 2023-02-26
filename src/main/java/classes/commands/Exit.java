@@ -1,21 +1,17 @@
 package classes.commands;
 
-import interfaces.Command;
+import classes.NamedCommand;
+import interfaces.Commandable;
 
-public class Exit implements Command {
-    @Override
-    public void execute() {
-        System.out.println("Завершение работы...");
-        Runtime.getRuntime().exit(0);
-    }
-
-    @Override
-    public String getName() {
-        return "exit";
-    }
-
+public class Exit extends NamedCommand implements Commandable {
     @Override
     public String getInfo() {
         return getName() + "\t-\tзавершить программу (без сохранения в файл)";
+    }
+
+    @Override
+    public void execute(String... args) {
+        System.out.println("Завершение работы...");
+        Runtime.getRuntime().exit(0);
     }
 }
