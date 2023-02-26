@@ -1,7 +1,6 @@
 import exceptions.DangerException;
 import exceptions.NoSuchCommandException;
 import exceptions.SystemException;
-import helper.ColorTextBuilder;
 import helper.InputHandler;
 import interfaces.Command;
 
@@ -11,12 +10,14 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static final String COLOR_RESET = "\u001B[0m";
+    private static final String COLOR_GREEN = "\u001B[32m";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         InputHandler inputHandler = new InputHandler();
         while (true) {
-            ColorTextBuilder.printConsoleLine("> ");
+            System.out.print(COLOR_GREEN + "> " + COLOR_RESET);
             try {
                 String commandName = scanner.nextLine();
                 if (!commandName.isBlank()) {
@@ -29,7 +30,7 @@ public class Main {
                      InstantiationException | IllegalAccessException e) {
                 new SystemException().printMessage();
             } catch (NoSuchElementException e) {
-                new DangerException("Для безопасного выхода используйте команду " + ColorTextBuilder.getConsoleLine("exit")).printMessage();
+                new DangerException("Для безопасного выхода используйте команду " + COLOR_GREEN + "> " + COLOR_RESET).printMessage();
                 Runtime.getRuntime().exit(0);
             }
         }

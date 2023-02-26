@@ -1,8 +1,7 @@
 package commands;
 
 
-import data_storage.DataStorage;
-import helper.ColorTextBuilder;
+
 import interfaces.Command;
 
 import java.io.*;
@@ -15,7 +14,8 @@ public class Clear implements Command {
     @Override
     public void execute() {
         Scanner scanner = new Scanner(System.in);
-        ColorTextBuilder.printConsoleLine("Enter a collection name: ");
+        System.out.print(COLOR_GREEN + "Enter a collection name: " + COLOR_RESET);
+        ColorTextBuilder.printConsoleLine();
         String collectionName = scanner.nextLine();
         String filepath = DataStorage.BASE_PATH_STORAGE + collectionName;
         File file = new File(filepath);

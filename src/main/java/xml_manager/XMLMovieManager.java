@@ -1,6 +1,6 @@
 package xml_manager;
 
-import data_storage.DataStorage;
+import DataStorage;
 import movie.Movies;
 
 import javax.xml.bind.JAXBContext;
