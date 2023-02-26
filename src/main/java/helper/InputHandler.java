@@ -1,3 +1,5 @@
+package helper;
+
 import exceptions.NoSuchCommandException;
 import interfaces.Command;
 import org.reflections.Reflections;

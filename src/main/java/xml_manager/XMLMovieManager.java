@@ -1,5 +1,6 @@
 package xml_manager;
 
+import data_storage.DataStorage;
 import movie.Movies;
 
 import javax.xml.bind.JAXBContext;
@@ -14,14 +15,6 @@ import java.io.*;
  * Some fields have restrictions. It's signed under every method of field.
  */
 public class XMLMovieManager {
-    /*
-    TODO чтение xml файлов можно без Scanner ++
-    TODO запись в файлы реализовать с помощью PrintWriter ++
-    TODO добавить итераторы ??
-     */
-
-    private final static String BASE_PATH_STORAGE = "src/main/java/data_storage/";
-    private final static String XML = ".xml";
     private static XMLMovieManager INSTANCE;
     private final Class BASE_CLASS = Movies.class;
 
@@ -37,7 +30,7 @@ public class XMLMovieManager {
         try {
             JAXBContext context = JAXBContext.newInstance(BASE_CLASS);
             Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
-            movies = (Movies) jaxbUnmarshaller.unmarshal(new File(BASE_PATH_STORAGE + filename));
+            movies = (Movies) jaxbUnmarshaller.unmarshal(new File(DataStorage.BASE_PATH_STORAGE + filename));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
@@ -51,7 +44,7 @@ public class XMLMovieManager {
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            String filepath = BASE_PATH_STORAGE + filename;
+            String filepath = DataStorage.BASE_PATH_STORAGE + filename;
             File f = new File(filepath);
             try {
                 File myObj = new File(filepath);
@@ -91,7 +84,7 @@ public class XMLMovieManager {
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            String filepath = BASE_PATH_STORAGE + filename;
+            String filepath = DataStorage.BASE_PATH_STORAGE + filename;
             File f = new File(filepath);
             try {
                 File myObj = new File(filepath);
