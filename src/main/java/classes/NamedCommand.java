@@ -1,9 +1,9 @@
 package classes;
 
-import classes.console.InputHandler;
+import classes.console.CommandHandler;
 
 public abstract class NamedCommand {
     public String getName() {
-        return InputHandler.camelToSnake(this.getClass().getSimpleName());
+        return CommandHandler.camelToSnake(this.getClass().getSimpleName());
     }
 }
