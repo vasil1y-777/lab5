@@ -1,9 +1,6 @@
-import exceptions.BadValueLengthException;
-import exceptions.BlankValueException;
-import exceptions.NotGreatThanException;
-import exceptions.NullValueException;
-import movie.*;
-import xml_manager.XMLMovieManager;
+import classes.movie.*;
+import classes.xml_manager.XMLMovieManager;
+import exceptions.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 public class WriteReadTesting {
-    public static void main(String[] args) throws BlankValueException, NotGreatThanException, BadValueLengthException, NullValueException {
+    public static void main(String[] args) throws BlankValueException, NotGreatThanException, BadValueLengthException, NullValueException, GreatThanException, NotUniqueException {
         List<Movie> mmovies = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
             Date directorBirthday = new Date();

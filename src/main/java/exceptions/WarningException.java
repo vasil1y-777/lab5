@@ -1,8 +1,8 @@
 package exceptions;
 
 public class WarningException extends Exception {
-    private static final String COLOR_RESET = "\u001B[0m";
-    private static final String COLOR_YELLOW = "\u001B[33m";
+    private static final String RESET = "\u001B[0m";
+    private static final String YELLOW = "\u001B[33m";
 
     private String message = "";
 
@@ -14,7 +14,7 @@ public class WarningException extends Exception {
     }
 
     public void printMessage() {
-        System.out.println(COLOR_YELLOW + getMessage() + COLOR_RESET);
+        System.out.println(YELLOW + getMessage() + RESET);
     }
 
     public String getMessage() {
@@ -23,6 +23,6 @@ public class WarningException extends Exception {
 
     @Override
     public String toString() {
-        return COLOR_YELLOW + getMessage() + COLOR_RESET;
+        return YELLOW + getMessage() + RESET;
     }
 }

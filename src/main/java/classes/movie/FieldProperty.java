@@ -1,4 +1,4 @@
-package movie;
+package classes.movie;
 
 public enum FieldProperty {
     NOT_NULL,
@@ -9,13 +9,13 @@ public enum FieldProperty {
     LENGTH(7),
     MAX_VALUE(279);
 
-    private final Object[] args;
+    private final Number[] args;
 
-    FieldProperty(Object... args) {
+    FieldProperty(Number... args) {
         this.args = args;
     }
 
-    public Object[] getArgs() {
+    public Number[] getArgs() {
         return args;
     }
 }

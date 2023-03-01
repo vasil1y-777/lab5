@@ -1,37 +1,31 @@
-import exceptions.DangerException;
+import classes.console.InputHandler;
+import classes.console.TextColor;
 import exceptions.NoSuchCommandException;
 import exceptions.SystemException;
-import helper.InputHandler;
-import interfaces.Command;
+import interfaces.Commandable;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
-
-    private static final String COLOR_RESET = "\u001B[0m";
-    private static final String COLOR_GREEN = "\u001B[32m";
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         InputHandler inputHandler = new InputHandler();
         while (true) {
-            System.out.print(COLOR_GREEN + "> " + COLOR_RESET);
+            System.out.print(TextColor.green("> "));
             try {
-                String commandName = scanner.nextLine();
+                String inputString = scanner.nextLine();
+                String commandName = inputString.split(" ")[0];
+                String commandArgument = inputString.split(" ")[1];
                 if (!commandName.isBlank()) {
-                    Command command = inputHandler.getCommand(commandName);
-                    command.execute();
+                    Commandable command = inputHandler.getCommand(commandName);
+                    command.execute(commandArgument);
                 }
             } catch (NoSuchCommandException e) {
                 e.printMessage();
             } catch (NoSuchMethodException | InvocationTargetException |
                      InstantiationException | IllegalAccessException e) {
                 new SystemException().printMessage();
-            } catch (NoSuchElementException e) {
-                new DangerException("Для безопасного выхода используйте команду " + COLOR_GREEN + "> " + COLOR_RESET).printMessage();
-                Runtime.getRuntime().exit(0);
             }
         }
     }

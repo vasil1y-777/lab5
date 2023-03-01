@@ -1,9 +1,9 @@
 package exceptions;
 
 public class NotGreatThanException extends WarningException {
-    private final int bound;
+    private final long bound;
 
-    public NotGreatThanException(int bound) {
+    public NotGreatThanException(long bound) {
         this.bound = bound;
     }
 
