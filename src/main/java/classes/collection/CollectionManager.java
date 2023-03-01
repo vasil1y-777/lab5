@@ -37,4 +37,7 @@ public class CollectionManager {
     public void removeMovie(int movieIndex) {
         collection.remove(movieIndex);
     }
+    public void clear() {
+        collection.clear();
+    }
 }

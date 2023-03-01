@@ -16,7 +16,10 @@ public class Main {
             try {
                 String inputString = scanner.nextLine();
                 String commandName = inputString.split(" ")[0];
-                String commandArgument = inputString.split(" ")[1];
+                String commandArgument = null;
+                if (inputString.split(" ").length > 1) {
+                    commandArgument = inputString.split(" ")[1];
+                }
                 if (!commandName.isBlank()) {
                     Commandable command = inputHandler.getCommand(commandName);
                     command.execute(commandArgument);
