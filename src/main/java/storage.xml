@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<movies>
+    <movie>
+        <id>af6d495d-0832-465b-8524-c8d7f1f3b139</id>
+        <name>hfgh</name>
+        <coordinates>
+            <x>3</x>
+            <y>43545</y>
+        </coordinates>
+        <creationDate>2023-03-01T21:12:58.975+03:00</creationDate>
+        <oscarsCount>435</oscarsCount>
+        <goldenPalmCount>345</goldenPalmCount>
+        <budget>345.0</budget>
+        <mpaaRating>PG</mpaaRating>
+        <director>
+            <birthday>2002-12-12T00:00:00+03:00</birthday>
+            <eyeColor>RED</eyeColor>
+            <height>344.0</height>
+            <name>gdfgdg</name>
+            <passportID>353453451113</passportID>
+        </director>
+    </movie>
+    <movie>
+        <id>1ab04fca-a46c-4bce-8579-fd3bb3ed02e6</id>
+        <name>Name38</name>
+        <coordinates>
+            <x>142</x>
+            <y>128</y>
+        </coordinates>
+        <creationDate>2023-03-01T21:13:04.459+03:00</creationDate>
+        <budget>5015.0</budget>
+        <director>
+            <eyeColor>BROWN</eyeColor>
+            <name>Director45</name>
+            <passportID>1234567</passportID>
+        </director>
+    </movie>
+</movies>
