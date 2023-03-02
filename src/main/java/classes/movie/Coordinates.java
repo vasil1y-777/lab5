@@ -46,6 +46,13 @@ public class Coordinates {
         this.y = y;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        Coordinates obj = (Coordinates) o;
+        return ((this.getX() == obj.getX())&&(this.getY() == obj.getY()));
+    }
+
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";

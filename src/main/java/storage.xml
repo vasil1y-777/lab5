@@ -1,38 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <movies>
     <movie>
-        <id>af6d495d-0832-465b-8524-c8d7f1f3b139</id>
-        <name>hfgh</name>
+        <id>1ea4ce5a-c059-41cf-8a19-32b7ef94350b</id>
+        <name>Name14</name>
         <coordinates>
-            <x>3</x>
-            <y>43545</y>
+            <x>204</x>
+            <y>524</y>
         </coordinates>
-        <creationDate>2023-03-01T21:12:58.975+03:00</creationDate>
-        <oscarsCount>435</oscarsCount>
-        <goldenPalmCount>345</goldenPalmCount>
-        <budget>345.0</budget>
-        <mpaaRating>PG</mpaaRating>
+        <creationDate>2023-03-02T15:02:33.614+03:00</creationDate>
+        <budget>7997.0</budget>
         <director>
-            <birthday>2002-12-12T00:00:00+03:00</birthday>
-            <eyeColor>RED</eyeColor>
-            <height>344.0</height>
-            <name>gdfgdg</name>
-            <passportID>353453451113</passportID>
+            <eyeColor>BROWN</eyeColor>
+            <name>Director79</name>
+            <passportID>1234567</passportID>
         </director>
     </movie>
     <movie>
-        <id>1ab04fca-a46c-4bce-8579-fd3bb3ed02e6</id>
-        <name>Name38</name>
+        <id>f5cd0734-6161-4647-b8aa-e61daa4e6008</id>
+        <name>gfdg</name>
         <coordinates>
-            <x>142</x>
-            <y>128</y>
+            <x>278</x>
+            <y>5454545</y>
         </coordinates>
-        <creationDate>2023-03-01T21:13:04.459+03:00</creationDate>
-        <budget>5015.0</budget>
+        <creationDate>2023-03-02T15:03:38.438+03:00</creationDate>
+        <oscarsCount>23</oscarsCount>
+        <goldenPalmCount>4324</goldenPalmCount>
+        <budget>23424.0</budget>
+        <mpaaRating>G</mpaaRating>
         <director>
-            <eyeColor>BROWN</eyeColor>
-            <name>Director45</name>
-            <passportID>1234567</passportID>
+            <birthday>2000-12-12T00:00:00+03:00</birthday>
+            <eyeColor>RED</eyeColor>
+            <height>4545.0</height>
+            <name>Fkdfks</name>
+            <passportID>3432424</passportID>
+        </director>
+    </movie>
+    <movie>
+        <id>9f4a9a9b-d330-4489-bd3f-3cce336f5c8a</id>
+        <name>dgfg</name>
+        <coordinates>
+            <x>278</x>
+            <y>545454555</y>
+        </coordinates>
+        <creationDate>2023-03-02T15:05:22.187+03:00</creationDate>
+        <oscarsCount>34</oscarsCount>
+        <goldenPalmCount>234</goldenPalmCount>
+        <budget>24324.0</budget>
+        <mpaaRating>G</mpaaRating>
+        <director>
+            <birthday>2000-12-12T00:00:00+03:00</birthday>
+            <eyeColor>BLACK</eyeColor>
+            <height>5454.0</height>
+            <name>FDfsdg</name>
+            <passportID>2525325314</passportID>
         </director>
     </movie>
 </movies>

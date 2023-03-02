@@ -16,7 +16,6 @@ public class ClearFile implements Commandable {
         try {
             PrintWriter writer = new PrintWriter(file);
             writer.print("");
-
             for (String line : readEmptyXMLCollection()) {
                 writer.print(line + "\n");
             }
@@ -28,7 +27,7 @@ public class ClearFile implements Commandable {
 
     @Override
     public String getName() {
-        return "clear file";
+        return "clear_file";
     }
 
     @Override
@@ -39,7 +38,7 @@ public class ClearFile implements Commandable {
 
     List<String> readEmptyXMLCollection() throws IOException {
         List<String> strs = new ArrayList<>();
-        BufferedReader in = new BufferedReader(new FileReader(DataStorage.EMPTY_STORAGE_SAMPLE_FILE_NAME));
+        BufferedReader in = new BufferedReader(new FileReader(DataStorage.EMPTY_STORAGE_SAMPLE_FILE_PATH));
         String str;
         while ((str = in.readLine()) != null) {
             strs.add(str);
