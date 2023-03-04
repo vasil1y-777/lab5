@@ -2,13 +2,14 @@ package classes.commands;
 
 
 import classes.DataStorage;
+import classes.NamedCommand;
 import interfaces.Commandable;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClearFile implements Commandable {
+public class ClearFile extends NamedCommand implements Commandable {
 
     @Override
     public void execute(String... args) {
@@ -24,11 +25,6 @@ public class ClearFile implements Commandable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public String getName() {
-        return "clear file";
     }
 
     @Override
