@@ -13,7 +13,7 @@ public class Save implements Commandable {
 
     @Override
     public String getName() {
-        return "show";
+        return "save";
     }
 
     @Override
