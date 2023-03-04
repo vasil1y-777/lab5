@@ -7,6 +7,7 @@ import exceptions.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
 import java.util.UUID;
 
@@ -17,7 +18,6 @@ import java.util.UUID;
 @XmlRootElement(name = "classes/movie")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movie {
-    //TODO перенести javadoc с геттеров-сеттеров только на поля
     private UUID id; //(UUID) Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
     private Coordinates coordinates; //Поле не может быть null
@@ -27,9 +27,6 @@ public class Movie {
     private Float budget; //Значение поля должно быть больше 0, Поле может быть null
     private MpaaRating mpaaRating; //Поле может быть null
     private Person director; //Поле не может быть null
-
-// TODO need for save xml...why?
- public Movie(){}
 
     public Movie(String name,
                  Coordinates coordinates,

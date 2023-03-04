@@ -9,7 +9,6 @@ public class RemoveAtIndex implements Commandable {
     public String getName() {
         return "remove_at_index";
     }
-
     @Override
     public String getInfo() {
         return getName() + "\t-\tудалить элемент, находящийся в заданной позиции коллекции (index)";
