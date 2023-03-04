@@ -32,19 +32,19 @@ public class XMLMovieManager {
         return INSTANCE != null ? INSTANCE : new XMLMovieManager();
     }
 
-    public Movies readObjectFromXML(String filename) {
+    public Movies readCollectionFromXML() {
         Movies movies = null;
         try {
             JAXBContext context = JAXBContext.newInstance(BASE_CLASS);
             Unmarshaller jaxbUnmarshaller = context.createUnmarshaller();
-            movies = (Movies) jaxbUnmarshaller.unmarshal(new File(DataStorage.STORAGE_FILE_PATH + filename));
+            movies = (Movies) jaxbUnmarshaller.unmarshal(new File(DataStorage.STORAGE_FILE_PATH));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
         return movies;
     }
 
-    public void saveObjectToXML(Movies movies) {
+    public void saveCollectionToXML(Movies movies) {
         JAXBContext jaxbContext;
         try {
             jaxbContext = JAXBContext.newInstance(BASE_CLASS);
