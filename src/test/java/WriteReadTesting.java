@@ -33,7 +33,7 @@ public class WriteReadTesting {
         }
         Movies mmm = new Movies();
         mmm.setMovies(mmovies);
-        System.out.println(XMLMovieManager.getInstance().readObjectFromXML("test.xml").toString());
-        XMLMovieManager.getInstance().saveObjectToXML(mmm);
+        System.out.println(XMLMovieManager.getInstance().readCollectionFromXML().toString());
+        XMLMovieManager.getInstance().saveCollectionToXML(mmm);
     }
 }
