@@ -12,11 +12,6 @@ public class Clear extends NamedCommand implements Commandable {
     }
 
     @Override
-    public String getName() {
-        return "clear";
-    }
-
-    @Override
     public String getInfo() {
         return getName() + "\t-\tочистить коллекцию";
 
