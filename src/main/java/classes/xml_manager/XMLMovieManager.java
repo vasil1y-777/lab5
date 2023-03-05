@@ -58,7 +58,6 @@ public class XMLMovieManager {
             StringWriter sw = new StringWriter();
             jaxbMarshaller.marshal(movies, sw);
             String xmlString = sw.toString();
-            System.out.println(xmlString);
             sw.close();
 
             PrintWriter writer = new PrintWriter(DataStorage.STORAGE_FILE_PATH);
