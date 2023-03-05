@@ -3,6 +3,7 @@ package classes.commands;
 
 import classes.DataStorage;
 import classes.NamedCommand;
+import classes.console.TextColor;
 import interfaces.Commandable;
 
 import java.io.*;
@@ -24,6 +25,7 @@ public class ClearFile extends NamedCommand implements Commandable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(TextColor.cyan("Файл коллекции был очищен"));
     }
 
     @Override
