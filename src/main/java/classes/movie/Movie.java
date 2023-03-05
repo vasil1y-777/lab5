@@ -28,6 +28,9 @@ public class Movie {
     private MpaaRating mpaaRating; //Поле может быть null
     private Person director; //Поле не может быть null
 
+    private Movie() {
+    }
+
     public Movie(String name,
                  Coordinates coordinates,
                  Long oscarsCount,

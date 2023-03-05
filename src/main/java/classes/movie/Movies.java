@@ -9,7 +9,7 @@ import java.util.List;
 @XmlRootElement(name = "movies")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movies {
-    @XmlElement(name = "classes/movie")
+    @XmlElement(name = "movie")
     private List<Movie> movies = null;
 
     public List<Movie> getMovies() {
