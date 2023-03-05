@@ -25,13 +25,11 @@ public class Save implements Commandable {
     public void execute(String... args) {
         CollectionManager collectionManager = new CollectionManager();
         ArrayList<Movie> moviesList = collectionManager.getCollection();
-
-        if (moviesList.size() != 0){
+        if (moviesList.size() != 0) {
             Movies movies = new Movies();
             movies.setMovies(moviesList);
             XMLMovieManager.getInstance().saveCollectionToXML(movies);
             System.out.println(TextColor.cyan("\tТекущая коллекция сохранена в файл"));
-        }
-        else System.out.println(TextColor.cyan("\tКоллекция пуста. Сохранять нечего"));
+        } else System.out.println(TextColor.cyan("\tКоллекция пуста. Сохранять нечего"));
     }
 }
