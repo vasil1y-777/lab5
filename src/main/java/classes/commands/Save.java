@@ -9,13 +9,7 @@ import interfaces.Commandable;
 
 import java.util.ArrayList;
 
-public class Save implements Commandable {
-
-    @Override
-    public String getName() {
-        return "save";
-    }
-
+public class Save extends NamedComand implements Commandable {
     @Override
     public String getInfo() {
         return getName() + "\t-\tсохранить коллекцию в файл";
