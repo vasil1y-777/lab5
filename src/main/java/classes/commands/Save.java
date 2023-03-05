@@ -1,5 +1,6 @@
 package classes.commands;
 
+import classes.NamedCommand;
 import classes.collection.CollectionManager;
 import classes.console.TextColor;
 import classes.movie.Movie;
@@ -9,7 +10,7 @@ import interfaces.Commandable;
 
 import java.util.ArrayList;
 
-public class Save extends NamedComand implements Commandable {
+public class Save extends NamedCommand implements Commandable {
     @Override
     public String getInfo() {
         return getName() + "\t-\tсохранить коллекцию в файл";
