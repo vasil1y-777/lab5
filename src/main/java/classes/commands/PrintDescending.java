@@ -9,12 +9,9 @@ import interfaces.Commandable;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class PrintDescending extends NamedCommand implements Commandable {
-
-
     @Override
     public String getInfo() {
         return getName() + "\t-\tвывести элементы коллекции в порядке убывания";
@@ -22,9 +19,9 @@ public class PrintDescending extends NamedCommand implements Commandable {
 
     @Override
     public void execute(String... args) {
-        List<Coordinates> moviesCoordinatesList= new ArrayList<>();
+        List<Coordinates> moviesCoordinatesList = new ArrayList<>();
         CollectionManager collectionManager = new CollectionManager();
-        for (Movie movies: collectionManager.getCollection()){
+        for (Movie movies : collectionManager.getCollection()) {
             moviesCoordinatesList.add(movies.getCoordinates());
         }
 
@@ -33,7 +30,7 @@ public class PrintDescending extends NamedCommand implements Commandable {
             Long y1 = (long) o1.getY();
             Long x2 = o2.getX();
             Long y2 = (long) o2.getY();
-            return  !x1.equals(x2) ? x1.compareTo(x2): y1.compareTo(y2);
+            return !x1.equals(x2) ? x1.compareTo(x2) : y1.compareTo(y2);
         });
         for (int i = 0; i < moviesCoordinatesList.size(); i++) {
             Coordinates m = moviesCoordinatesList.get(i);
@@ -41,8 +38,8 @@ public class PrintDescending extends NamedCommand implements Commandable {
             ArrayList<Movie> collection = collectionManager.getCollection();
             for (int j = 0; j < collection.size(); j++) {
                 Movie movies = collection.get(j);
-                if (m.equals(movies.getCoordinates())){
-                    Collections.swap(collectionManager.getCollection(), i,j);
+                if (m.equals(movies.getCoordinates())) {
+                    Collections.swap(collectionManager.getCollection(), i, j);
                 }
             }
 
