@@ -6,7 +6,6 @@ import classes.console.TextColor;
 import interfaces.Commandable;
 
 public class Clear extends NamedCommand implements Commandable {
-
     @Override
     public void execute(String... args) {
         new CollectionManager().clear();

@@ -1,11 +1,9 @@
 package classes.movie;
 
 import exceptions.*;
-
 import java.util.Random;
 
 public class RandomMovie {
-
     public static Movie generate() {
         Random r = new Random();
         Person director;
@@ -14,9 +12,8 @@ public class RandomMovie {
                     "Director" + r.nextInt(100),
                     null,
                     null,
-                    Long.toString(r.nextLong(1000)+100000000),
+                    Long.toString(r.nextLong(1000) + 100000000),
                     Color.BROWN);
-
             return new Movie(
                     "Name" + r.nextInt(100),
                     new Coordinates(r.nextInt(278), r.nextInt(1000) - 230),
