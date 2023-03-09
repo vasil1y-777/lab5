@@ -15,14 +15,14 @@ public class RemoveAtIndex extends NamedCommand implements Commandable {
     @Override
     public void execute(String... args) {
         if (args.length == 1) {
-            try{
+            try {
                 int idx = Integer.parseInt(args[0]);
                 new CollectionManager().getCollection().remove(idx);
-            } catch (NumberFormatException e){
-                System.out.println(TextColor.yellow("Неверный формат ввода. Введите индекс в формате целочисленного числа через пробел"));
-            }
-            finally {
                 System.out.println(TextColor.cyan("Элемент успешно удалён"));
+            } catch (NumberFormatException e) {
+                System.out.println(TextColor.yellow("Неверный формат ввода. Введите индекс в формате целочисленного числа через пробел"));
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println(TextColor.yellow("Введенный индекс выходит за пределы размера нынешней коллекции"));
             }
 
         } else {
