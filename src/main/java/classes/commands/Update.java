@@ -21,8 +21,6 @@ public class Update extends NamedCommand implements Commandable {
 
         try {
             UUID uuid = UUID.fromString(args[0]);
-            //do something
-
             CollectionManager cm = new CollectionManager();
             for (Movie movie : cm.getCollection()) {
                 if (movie.getId().equals(uuid)) {
