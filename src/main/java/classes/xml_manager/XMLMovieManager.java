@@ -2,6 +2,7 @@ package classes.xml_manager;
 
 import classes.DataStorage;
 import classes.movie.Movies;
+import exceptions.DangerException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -64,11 +65,9 @@ public class XMLMovieManager {
             writer.close();
 
         } catch (FileNotFoundException e) {
-            System.out.println("File not found error");
-            e.printStackTrace();
+            new DangerException("Файл не найден").printMessage();
         } catch (IOException e) {
-            System.out.println("An IO error occurred");
-            e.printStackTrace();
+            new DangerException("Ошибка ввода-вывода").printMessage();
         } catch (JAXBException e) {
             e.printStackTrace();
         }
