@@ -1,6 +1,7 @@
 package classes.movie;
 
 import exceptions.*;
+
 import java.util.Random;
 
 public class RandomMovie {
@@ -24,7 +25,7 @@ public class RandomMovie {
                     director);
         } catch (BlankValueException | NullValueException | NotGreatThanException | BadValueLengthException |
                  GreatThanException | NotUniqueException e) {
-            System.out.println(e);
+            System.out.println(e.toString());
         }
         return null;
     }

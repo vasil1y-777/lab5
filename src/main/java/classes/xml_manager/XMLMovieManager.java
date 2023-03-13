@@ -51,7 +51,6 @@ public class XMLMovieManager {
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-
             File file = new File(DataStorage.STORAGE_FILE_PATH);
             file.createNewFile(); // checks existence of file and create if necessary
             Movies mmm = new Movies();
@@ -63,7 +62,6 @@ public class XMLMovieManager {
             PrintWriter writer = new PrintWriter(DataStorage.STORAGE_FILE_PATH);
             writer.print(sw);
             writer.close();
-
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found error");
