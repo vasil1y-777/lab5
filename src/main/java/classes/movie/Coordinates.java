@@ -50,6 +50,15 @@ public class Coordinates {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        return (
+                obj instanceof Coordinates &&
+                        this.getX() == ((Coordinates) obj).getX() &&
+                        this.getY() == ((Coordinates) obj).getY()
+        );
+    }
+
+    @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
     }

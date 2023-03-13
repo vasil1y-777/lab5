@@ -19,8 +19,7 @@ public class XMLMovieManager {
     private static XMLMovieManager INSTANCE;
     private final Class BASE_CLASS = Movies.class;
 
-    private XMLMovieManager() {
-    }
+    private XMLMovieManager() {}
 
     public static XMLMovieManager getInstance() {
         return INSTANCE != null ? INSTANCE : new XMLMovieManager();

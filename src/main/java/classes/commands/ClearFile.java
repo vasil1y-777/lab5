@@ -31,7 +31,6 @@ public class ClearFile extends NamedCommand implements Commandable {
     @Override
     public String getInfo() {
         return getName() + "\t-\tочистить файл коллекции";
-
     }
 
     List<String> readEmptyXMLCollection() throws IOException {
@@ -43,6 +42,5 @@ public class ClearFile extends NamedCommand implements Commandable {
         }
         return strs;
     }
-
 }
 

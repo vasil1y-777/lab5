@@ -34,7 +34,6 @@ public class PrintDescending extends NamedCommand implements Commandable {
         });
         for (int i = 0; i < moviesCoordinatesList.size(); i++) {
             Coordinates m = moviesCoordinatesList.get(i);
-
             ArrayList<Movie> collection = collectionManager.getCollection();
             for (int j = 0; j < collection.size(); j++) {
                 Movie movies = collection.get(j);
@@ -42,7 +41,6 @@ public class PrintDescending extends NamedCommand implements Commandable {
                     Collections.swap(collectionManager.getCollection(), i, j);
                 }
             }
-
         }
         System.out.println(TextColor.cyan("Содержимое коллекции в порядке убывания: "));
 
